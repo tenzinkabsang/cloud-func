@@ -1,0 +1,138 @@
+<div class="prow" style="text-align: center;">
+	<table style="border-collapse: collapse; width: 50.7641%; height: 61.9922px; float: left;" border="2" align="right">
+		<tbody>
+			<tr style="height: 24.4922px;">
+				<td style="width: 41.9534px; height: 18.75px; background-color: #d3d3d3; text-align: left;">
+					<span style="font-size: 8pt;">
+						<strong>Order #</strong>
+					</span>
+				</td>
+				<td style="width: 41.9534%; height: 24.4922px; text-align: left;">
+					<span style="font-size: 8pt;">&nbsp;{{orderId}}</span>
+				</td>
+			</tr>
+			<tr style="height: 18.75px;">
+				<td style="width: 58.0487%; height: 18.75px; background-color: #d3d3d3; text-align: left;">
+					<span style="font-size: 8pt;">
+						<strong>Customer #</strong>
+					</span>
+				</td>
+				<td style="width: 41.9534%; height: 18.75px; text-align: left;">
+					<span style="font-size: 8pt;">&nbsp;{{customerId}}</span>
+				</td>
+			</tr>
+			<tr style="height: 18.75px;">
+				<td style="width: 58.0487%; background-color: #d3d3d3; text-align: left; height: 18.75px;">
+					<span style="font-size: 8pt;">
+						<strong>Sheet #</strong>
+					</span>
+				</td>
+				<td style="width: 41.9534%; text-align: left; height: 18.75px;">
+					<span style="font-size: 8pt;">&nbsp;{{sheetId}}</span>
+				</td>
+			</tr>
+		</tbody>
+	</table>
+	<span style="font-size: 8pt;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;{{shippingNumber}}</span>
+	<div class="prow">
+		<img style="float: right;" src="https://barcodeapi.org/api/128/{{shippingNumber}}?dpi=400&amp;text=none" alt="" width="120" height="30"/>
+	</div>
+	<div class="prow">
+		<span style="font-size: 8pt; color: #ffffff;">num</span>
+	</div>
+	<div class="prow" style="text-align: right;">
+		<span style="font-size: 9pt;">&nbsp; &nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;{{orderDate}} {{shippingCountryCode}}</span>
+	</div>
+	<div class="prow" style="text-align: right; line-height: 0.3;">
+		<span style="font-size: 8pt;">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;</span>
+	</div>
+	<div class="prow" style="text-align: center;">
+		<table style="border-collapse: collapse; width: 100.997%; height: 30px; border-color: #34495e; border-style: solid; margin-left: auto; margin-right: auto;" border="2" cellspacing="1" cellpadding="5">
+			<tbody>
+				<tr style="height: 20px;">
+					<td style="width: 48.1388%; background-color: #d3d3d3; height: 20px;">
+						<div class="prow">
+							<span style="font-size: 8pt;">
+								<strong>
+									<span style="font-family: Oswald;">Ship To</span>
+								</strong>
+							</span>
+						</div>
+					</td>
+					<td style="width: 51.8622%; background-color: #d3d3d3; height: 20px;">
+						<span style="font-size: 8pt;">
+							<strong>
+								<span style="font-family: Oswald;">Bill To</span>
+							</strong>
+						</span>
+					</td>
+				</tr>
+				<tr style="height: 10px;">
+					<td style="width: 48.1388%; height: 10px;">
+						<div class="prow">
+							<span style="font-family: Oswald; font-size: 8pt;">{{shippingInfo}}</span>
+						</div>
+					</td>
+					<td style="width: 51.8622%; height: 10px;">
+						<span style="font-family: Oswald; font-size: 8pt;">{{billingInfo}}</span>
+					</td>
+				</tr>
+			</tbody>
+		</table>
+		<div class="prow" style="line-height: 1;">
+		<table style="border-collapse: collapse; width: 100.199%; border-style: dotted; float: right;" border="1">
+				<tbody>
+					<tr>
+						<td style="width: 36.521%;">
+							<div class="prow">
+								<span style="font-size: 8pt;">&nbsp; &nbsp; &nbsp; &nbsp;<code>
+										<img src="{{production_Url}}" alt="" width="181" height="154"/>
+									</code>
+								</span>
+							</div>
+						</td>
+						<td style="width: 63.4801%;">
+							<table>
+								<tbody>
+									<tr>
+										<td><img src="https://barcodeapi.org/api/128/{{sku}}?dpi=400&amp;text=none" alt="" width="110" height="30"/></td>
+										<td>
+											<span style="font-size: 8pt;">
+												<strong>{{sku}}:&nbsp;</strong>
+												<br/>{{itemDescription}} </span>
+										</td>
+									</tr>
+								</tbody>
+							</table>
+						{% for option in options %}
+							<div class="prow" style="text-align: center;">
+								<span style="font-size: 8pt;">
+									<strong>{{option.name}}:</strong> {{option.value}} </span>
+							</div>
+						{% endfor %} {% for textoption in textoptions %}
+							<div class="prow" style="text-align: center;">
+								<div class="prow" style="text-align: center;">
+									<div class="prow" style="text-align: center;">
+										<span style="font-size: 10pt;">
+											<strong>{{textoption.name}}:</strong> {{textoption.value}}</span>
+									</div>
+									<div class="prow" style="text-align: center;">
+										<span style="font-size: 9pt;"><img src="https://barcodeapi.org/api/128/{{textoption.value}}?dpi=400&amp;text=none" alt="" width="160" height="40"/></span>
+									</div>
+								</div>
+							</div>
+						{% endfor %}
+						</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+	</div>
+	<div class="prow" style="text-align: center;">&nbsp;</div>
+	<div class="prow" style="text-align: center;">
+		<span style="font-size: 8pt;">
+			<img style="height: 40px; width: 400px; display: block; margin-left: auto; margin-right: auto;" src="https://barcodeapi.org/api/128/{{barcode}}?dpi=400&amp;text=none"/>
+			<span style="font-size: 10pt;">{{barcode}}</span>
+		</span>
+	</div>
+</div>

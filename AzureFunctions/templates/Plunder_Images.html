@@ -1,0 +1,39 @@
+<div class="flex flex-row " style="height: 450px; margin-top: 12px;">
+    <div>
+        <div class="bg-yellow-100 border border-l-0 border-t-0 text-center border-black">
+            {{sheetNo}}
+        </div>
+        <div class="mt-48" style="width: 100px; transform: rotate(-90deg); transform-origin: 50% 50%">
+            <div>
+                {{batchGuid | render_barcode(type='code128',style='height:50px; width:300px;')}}
+            </div>
+          	
+        </div>
+    </div>
+    <div class="flex flex-row">
+        {% for item in items%}
+        <div class=" h-full pb-1 border border-r-0 border-t-0 border-b-0 border-black border-dashed" style="width:175px">
+            <div class="text-center border-b border-black h-7" style="font-size:9px; width:175px;"> 
+              {% if item.remake == true %}
+              	<div style="background-color: #FFCCCB">{{item.item_no}}</div>
+              {% else %}
+              	<div>{{item.item_no}}</div>
+              {% endif %}
+            </div>
+            <div class="h-36 mt-3 px-3">
+                <img src={{item.image}}>
+            </div>
+            <div class="ml-3 mt-40">
+                <div>
+                    <div>
+                        {{item.document_id| render_barcode(type='code128',style='height:90px; width:150px; height: 50px;')}}
+                    </div>
+                    <div style="font-size: 12px; width: 150px;">
+                        {{item.itemDescription}}
+                    </div>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</div>
